@@ -1,0 +1,43 @@
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
+
+.character-sheet {
+  font-family: 'Georgia', serif;
+  border: 2px solid #7b3f00;
+  padding: 2rem;
+  background-color: #fdf8f2;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.character-header h1 {
+  font-size: 2rem;
+  border-bottom: 2px solid #7b3f00;
+  padding-bottom: 0.5rem;
+}
+
+.stats-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.stats-list li {
+  min-width: 100px;
+}
+
+.wysiwyg-content {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background-color: #fff;
+  white-space: pre-line;
+}
+
+.character-footer {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
