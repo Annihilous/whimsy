@@ -1,132 +1,35 @@
-<%= form_with(model: character) do |form| %>
-  <% if character.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
 
-      <ul>
-        <% character.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= simple_form_for(@character) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :race %>
+    <%= f.input :character_class %>
+    <%= f.input :background %>
+    <%= f.input :alignment %>
+    <%= f.input :description %>
+    <%= f.input :strength %>
+    <%= f.input :dexterity %>
+    <%= f.input :constitution %>
+    <%= f.input :intelligence %>
+    <%= f.input :wisdom %>
+    <%= f.input :charisma %>
+    <%= f.input :strength_save %>
+    <%= f.input :dexterity %>
+    <%= f.input :constitution %>
+    <%= f.input :intelligence %>
+    <%= f.input :wisdom %>
+    <%= f.input :charisma %>
+    <%= f.input :armor_class %>
+    <%= f.input :hit_points %>
+    <%= f.input :proficiency_bonus %>
+    <%= f.input :abilities %>
+    <%= f.input :equipment %>
   </div>
 
-  <div>
-    <%= form.label :race, style: "display: block" %>
-    <%= form.text_field :race %>
-  </div>
-
-  <div>
-    <%= form.label :character_class, style: "display: block" %>
-    <%= form.text_field :character_class %>
-  </div>
-
-  <div>
-    <%= form.label :background, style: "display: block" %>
-    <%= form.text_field :background %>
-  </div>
-
-  <div>
-    <%= form.label :alignment, style: "display: block" %>
-    <%= form.text_field :alignment %>
-  </div>
-
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div>
-    <%= form.label :strength, style: "display: block" %>
-    <%= form.number_field :strength %>
-  </div>
-
-  <div>
-    <%= form.label :dexterity, style: "display: block" %>
-    <%= form.number_field :dexterity %>
-  </div>
-
-  <div>
-    <%= form.label :constitution, style: "display: block" %>
-    <%= form.number_field :constitution %>
-  </div>
-
-  <div>
-    <%= form.label :intelligence, style: "display: block" %>
-    <%= form.number_field :intelligence %>
-  </div>
-
-  <div>
-    <%= form.label :wisdom, style: "display: block" %>
-    <%= form.number_field :wisdom %>
-  </div>
-
-  <div>
-    <%= form.label :charisma, style: "display: block" %>
-    <%= form.number_field :charisma %>
-  </div>
-
-  <div>
-    <%= form.label :strength_save, style: "display: block" %>
-    <%= form.number_field :strength_save %>
-  </div>
-
-  <div>
-    <%= form.label :dexterity, style: "display: block" %>
-    <%= form.number_field :dexterity %>
-  </div>
-
-  <div>
-    <%= form.label :constitution, style: "display: block" %>
-    <%= form.number_field :constitution %>
-  </div>
-
-  <div>
-    <%= form.label :intelligence, style: "display: block" %>
-    <%= form.number_field :intelligence %>
-  </div>
-
-  <div>
-    <%= form.label :wisdom, style: "display: block" %>
-    <%= form.number_field :wisdom %>
-  </div>
-
-  <div>
-    <%= form.label :charisma, style: "display: block" %>
-    <%= form.number_field :charisma %>
-  </div>
-
-  <div>
-    <%= form.label :armor_class, style: "display: block" %>
-    <%= form.number_field :armor_class %>
-  </div>
-
-  <div>
-    <%= form.label :hit_points, style: "display: block" %>
-    <%= form.number_field :hit_points %>
-  </div>
-
-  <div>
-    <%= form.label :proficiency_bonus, style: "display: block" %>
-    <%= form.number_field :proficiency_bonus %>
-  </div>
-
-  <div>
-    <%= form.label :abilities, style: "display: block" %>
-    <%= form.text_area :abilities %>
-  </div>
-
-  <div>
-    <%= form.label :equipment, style: "display: block" %>
-    <%= form.text_area :equipment %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
