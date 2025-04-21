@@ -3,41 +3,55 @@
 
 .character-sheet {
   font-family: 'Georgia', serif;
-  border: 2px solid #7b3f00;
+  border: 2px solid #333;
   padding: 2rem;
-  background-color: #fdf8f2;
+  background-color: #f0f0f0;
   margin-top: 2rem;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .character-header h1 {
   font-size: 2rem;
-  border-bottom: 2px solid #7b3f00;
+  border-bottom: 2px solid #333;
   padding-bottom: 0.5rem;
 }
 
-.stats-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-}
-
-.stats-list li {
-  min-width: 100px;
-}
-
 .wysiwyg-content {
-  border: 1px solid #ccc;
+  border: 1px solid #777;
   padding: 1rem;
   background-color: #fff;
-  white-space: pre-line;
+  line-height: 1;
+  font-size: 0.875rem;
+}
+
+.character-identity-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .character-footer {
   margin-top: 2rem;
   display: flex;
   gap: 1rem;
+}
+
+@media print {
+  .character-footer, footer {
+    display: none !important;
+  }
+
+  .container,
+  .container-fluid {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
 }

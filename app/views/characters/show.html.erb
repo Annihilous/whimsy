@@ -1,10 +1,72 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @character %>
+  <div class="character-sheet">
+    <div class="character-header">
+      <h1><%= @character.name %></h1>
+      <p class="character-identity-line">
+        <strong class="fs-6"><%= @character.alignment %>, <%= @character.background %></strong>
+        <strong><%= @character.race %> <%= @character.character_class %></strong>
+      </p>
+    </div>
 
-<div>
-  <%= link_to "Edit this character", edit_character_path(@character) %> |
-  <%= link_to "Back to characters", characters_path %>
+    <div class="d-flex gap-5 small flex-wrap">
+      <div>
+        <strong>Stats</strong><br>
+        STR: <%= @character.strength %> (<%= @character.strength_bonus %>)<br>
+        DEX: <%= @character.dexterity %> (<%= @character.dexterity_bonus %>)<br>
+        CON: <%= @character.constitution %> (<%= @character.constitution_bonus %>)<br>
+        INT: <%= @character.intelligence %> (<%= @character.intelligence_bonus %>)<br>
+        WIS: <%= @character.wisdom %> (<%= @character.wisdom_bonus %>)<br>
+        CHA: <%= @character.charisma %> (<%= @character.charisma_bonus %>)
+      </div>
 
-  <%= button_to "Destroy this character", @character, method: :delete %>
+      <div>
+        <strong>Saves</strong><br>
+        STR Save: <%= @character.strength_save %><br>
+        DEX Save: <%= @character.dexterity_save %><br>
+        CON Save: <%= @character.constitution_save %><br>
+        INT Save: <%= @character.intelligence_save %><br>
+        WIS Save: <%= @character.wisdom_save %><br>
+        CHA Save: <%= @character.charisma_save %>
+      </div>
+
+      <div>
+        <strong>Combat</strong><br>
+        Armor Class: <%= @character.armor_class %><br>
+        Hit Points: <%= @character.hit_points %><br>
+        Proficiency Bonus: <%= @character.proficiency_bonus %><br>
+        Initiative: <%= @character.dexterity_bonus %>
+      </div>
+
+      <div>
+        <strong>Current HP and Status Effects</strong><br>
+      </div>
+    </div>
+
+    <div class="my-3">
+      <strong>Description</strong>
+      <div class="small"><%= @character.description&.html_safe %></div>
+    </div>
+
+    <div class="my-3">
+      <div class="pb-1"><strong>Abilities</strong></div>
+      <div class="wysiwyg-content">
+        <%= @character.abilities&.html_safe %>
+      </div>
+    </div>
+
+    <div class="my-3">
+    <div class="pb-1"><strong>Equipment</strong></div>
+      <div class="wysiwyg-content">
+        <%= @character.equipment&.html_safe %>
+      </div>
+    </div>
+
+    <div class="character-footer">
+      <%= link_to "Edit", edit_character_path(@character), class: "btn btn-primary btn-sm" %>
+      <%= link_to "Back", characters_path, class: "btn btn-secondary btn-sm" %>
+      <%= button_to "Destroy", @character, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" %>
+    </div>
+</div>
 </div>

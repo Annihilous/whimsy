@@ -1,15 +1,16 @@
-
 <%= simple_form_for(@character) do |f| %>
+  <%= tinymce %>
+
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class='form-inputs'>
     <%= f.input :name %>
     <%= f.input :race %>
     <%= f.input :character_class %>
     <%= f.input :background %>
     <%= f.input :alignment %>
-    <%= f.input :description %>
+    <%= f.input :description, input_html: { class: 'tinymce', rows: 40, cols: 120 } %>
     <%= f.input :strength %>
     <%= f.input :dexterity %>
     <%= f.input :constitution %>
@@ -17,19 +18,20 @@
     <%= f.input :wisdom %>
     <%= f.input :charisma %>
     <%= f.input :strength_save %>
-    <%= f.input :dexterity %>
-    <%= f.input :constitution %>
-    <%= f.input :intelligence %>
-    <%= f.input :wisdom %>
-    <%= f.input :charisma %>
+    <%= f.input :dexterity_save %>
+    <%= f.input :constitution_save %>
+    <%= f.input :intelligence_save %>
+    <%= f.input :wisdom_save %>
+    <%= f.input :charisma_save %>
     <%= f.input :armor_class %>
     <%= f.input :hit_points %>
     <%= f.input :proficiency_bonus %>
-    <%= f.input :abilities %>
-    <%= f.input :equipment %>
+    <%= f.input :initiative %>
+    <%= f.input :abilities, input_html: { class: 'tinymce', rows: 40, cols: 120 } %>
+    <%= f.input :equipment, input_html: { class: 'tinymce', rows: 40, cols: 120 } %>
   </div>
 
-  <div class="form-actions">
+  <div class='form-actions'>
     <%= f.button :submit %>
   </div>
 <% end %>

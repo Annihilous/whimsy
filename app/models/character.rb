@@ -1,5 +1,5 @@
 class Character < ApplicationRecord
-  before_save :set_saves
+  before_save :set_initiative, :set_saves
 
   def strength_bonus
     (strength - 10) / 2
@@ -26,6 +26,10 @@ class Character < ApplicationRecord
   end
 
   private
+
+  def set_initiative
+    self.initiative = dexterity_bonus if initiative.blank?
+  end
 
   def set_saves
     self.strength_save     = strength_bonus     if strength_save.blank?
