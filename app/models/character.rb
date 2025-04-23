@@ -25,6 +25,10 @@ class Character < ApplicationRecord
     (charisma - 10) / 2
   end
 
+  def tag
+    "#{self.description.gsub('<p>', '').split('.').first}."
+  end
+
   private
 
   def set_initiative
