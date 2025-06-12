@@ -1,0 +1,18 @@
+<div class="container">
+  <% content_for :page_title do %>
+    Whimsy
+  <% end %>
+
+  <div class="text-center py-4">
+    <%= link_to new_character_path, class: "btn btn-primary" do %>
+      Make Someone
+    <% end %>
+  </div>
+
+  <div class="text-center">
+    <p>Who else is there?</p>
+    <%= link_to characters_path, class: "btn btn-secondary" do %>
+      Characters
+    <% end %>
+  </div>
+</div>
